@@ -19,3 +19,28 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+
+# Logging
+LOGGING = {
+    'version': 1,
+    'disable_existing_loggers': False,
+    'formatters': {
+        'debug_formatter': {
+            'format': '[%(levelname)s][%(pathname)s:%(funcName)s():%(lineno)d][%(asctime)s] "%(message)s"',
+            'datefmt': '%d/%b/%Y %H:%M:%S'
+        },
+    },
+    'handlers': {
+        'debug_console': {
+            'level': 'DEBUG',
+            'class': 'logging.StreamHandler',
+            'formatter': 'debug_formatter',
+        }
+    },
+    'loggers': {
+        'debug': {
+            'level': 'DEBUG',
+            'handlers': ['debug_console']
+        },
+    },
+}
